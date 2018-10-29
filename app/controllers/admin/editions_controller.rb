@@ -197,7 +197,6 @@ private
       world_location_ids: [],
       worldwide_organisation_ids: [],
       related_policy_ids: [],
-      policy_content_ids: [],
       topic_ids: [],
       topical_event_ids: [],
       related_detailed_guide_ids: [],
@@ -334,7 +333,6 @@ private
     return if edition_params.empty?
     edition_params[:title].strip! if edition_params[:title]
     edition_params.delete(:primary_locale) if edition_params[:primary_locale].blank?
-    edition_params[:policy_content_ids].reject!(&:blank?) if edition_params[:policy_content_ids]
   end
 
   def clear_scheduled_publication_if_not_activated

@@ -54,7 +54,6 @@ private
       lead_organisations: edition.lead_organisations.map(&:content_id),
       supporting_organisations: edition.supporting_organisations.map(&:content_id),
       topics: edition.topics.map { |t| t.as_json(only: %i[id content_id name type]) },
-      policy_content_ids: edition.policy_content_ids,
       world_locations: edition.world_locations.map(&:content_id),
       worldwide_organisations: edition.worldwide_organisations.map(&:content_id),
       ministers: ministers(edition),

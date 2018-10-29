@@ -1,4 +1,7 @@
+require "gds_api/test_helpers/rummager"
+
 Before do
-  # Default stubbing for rummager requests for related policies
-  rummager_has_no_policies_for_any_type
+  stub_any_rummager_search_to_return_no_results
 end
+
+World(GdsApi::TestHelpers::Rummager)

@@ -38,7 +38,6 @@ class ActiveSupport::TestCase
   include HtmlAssertions
   include I18nHelpers
   include PublishingApiTestHelpers
-  include PolicyTaggingHelpers
   include GovukContentSchemaTestHelpers::TestUnit
   include UrlHelpers
   extend GovspeakValidationTestHelper
@@ -53,7 +52,6 @@ class ActiveSupport::TestCase
     Edition::AuditTrail.whodunnit = fake_whodunnit
     stub_any_publishing_api_call
     stub_publishing_api_publish_intent
-    stub_publishing_api_policies
     Services.stubs(:asset_manager).returns(stub_everything('asset-manager'))
   end
 

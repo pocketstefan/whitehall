@@ -39,7 +39,7 @@ module PublishingApi
 
     def edition_links
       links = LinksPresenter.new(item).extract(
-        %i(organisations policy_areas topics related_policies parent)
+        %i(organisations policy_areas topics parent)
       )
       links[:documents] = item.documents.pluck(:content_id).uniq
       links.merge!(PayloadBuilder::TopicalEvents.for(item))

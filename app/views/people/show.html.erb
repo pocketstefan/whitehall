@@ -36,9 +36,6 @@
             <% if @person.previous_role_appointments.any? %>
               <li><%= link_to t('people.previous_roles'), "#previous-roles" %></li>
             <% end %>
-            <% if @person.has_policy_responsibilities? %>
-              <li><%= link_to t('policies.heading'), "#policy" %></li>
-            <% end %>
             <% if @person.announcements.any? %>
               <li><%= link_to t('announcements.heading'), "#announcements" %></li>
             <% end %>
@@ -90,14 +87,6 @@
               <% end %>
             <% end %>
           </ol>
-        </section>
-      <% end %>
-
-      <% if @person.has_policy_responsibilities? %>
-        <section id="policy">
-          <h1><%= t('policies.heading') %></h1>
-
-          <%= render 'policies/document_list', policies: @person.published_policies %>
         </section>
       <% end %>
 
