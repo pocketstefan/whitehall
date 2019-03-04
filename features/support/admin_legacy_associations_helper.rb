@@ -44,8 +44,8 @@ private
 
   def assert_selected_policies_are_displayed
     assert has_css? ".policies li", text: policy_1['title']
-    refute has_css? ".policies li", text: policy_area_1['title']
-    refute has_css? ".policies li", text: policy_2['title']
+    assert has_no_css? ".policies li", text: policy_area_1['title']
+    assert has_no_css? ".policies li", text: policy_2['title']
   end
 
   def check_policies(policies:)
@@ -54,9 +54,9 @@ private
   end
 
   def assert_selected_policy_areas_are_displayed
-    refute has_css? ".policy-areas li", text: policy_area_1['title']
+    assert has_no_css? ".policy-areas li", text: policy_area_1['title']
     assert has_css? ".policy-areas li", text: policy_area_3['title']
-    refute has_css? ".policy-areas li", text: policy_area_2['title']
+    assert has_no_css? ".policy-areas li", text: policy_area_2['title']
   end
 
 
@@ -86,11 +86,10 @@ private
 
   def assert_selected_specialist_sectors_are_displayed
     assert has_css? ".primary-specialist-sector li", text: 'Oil and Gas: Wells'
-    refute has_css? ".primary-specialist-sector li", text: 'Oil and Gas: Fields'
+    assert has_no_css? ".primary-specialist-sector li", text: 'Oil and Gas: Fields'
     assert has_css? ".secondary-specialist-sectors li", text: 'Oil and Gas: Fields'
     assert has_css? ".secondary-specialist-sectors li", text: 'Oil and Gas: Offshore'
-    refute has_css? ".secondary-specialist-sectors li", text: 'Oil and Gas: Wells'
-
+    assert has_no_css? ".secondary-specialist-sectors li", text: 'Oil and Gas: Wells'
   end
 end
 

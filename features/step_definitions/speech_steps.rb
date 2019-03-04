@@ -89,7 +89,7 @@ Then(/^I should be able to choose the date it was written on$/) do
 end
 
 Then(/^I cannot choose a location for the article$/) do
-  refute page.find("#edition_location", visible: :all).visible?
+  assert page.has_no_css?("#edition_location")
 end
 
 Then(/^it should be shown as an authored article in the admin screen$/) do

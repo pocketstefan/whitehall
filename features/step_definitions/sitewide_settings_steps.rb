@@ -33,7 +33,7 @@ Then(/^I should (not )?see a reshuffle warning message$/) do |negate|
 end
 
 Then(/^I should not see the ministers and cabinet$/) do
-  refute page.has_css?("h2", text: "Cabinet ministers")
-  refute page.has_css?("h2", text: "Also attends Cabinet")
-  refute page.has_css?("h2", text: "Ministers by department")
+  assert page.has_no_css?("h2", text: "Cabinet ministers")
+  assert page.has_no_css?("h2", text: "Also attends Cabinet")
+  assert page.has_no_css?("h2", text: "Ministers by department")
 end
