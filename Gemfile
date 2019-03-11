@@ -65,6 +65,8 @@ gem 'unicorn', '5.4.1'
 gem 'validates_email_format_of'
 gem 'whenever', '~> 0.10.0', require: false
 
+gem 'bullet'
+
 # rubocop:disable Bundler/DuplicatedGem
 if ENV['GDS_API_ADAPTERS_DEV']
   gem 'gds-api-adapters', path: '../gds-api-adapters'

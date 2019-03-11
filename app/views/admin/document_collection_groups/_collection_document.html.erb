@@ -9,7 +9,7 @@
       Last changed: <%= public_time_for_edition(edition) %>
     </li>
     <li>
-      <%= edition.organisations.map { |o| organisation_display_name(o) }.to_sentence.html_safe %>
+      <%= edition.organisations.includes(:translations).pluck(:name) %>
     </li>
     <li>
       <%= edition.display_type %>

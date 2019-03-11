@@ -38,9 +38,10 @@ class DocumentCollectionGroup < ApplicationRecord
   end
 
   def latest_editions
-    associations = { latest_edition: %i[organisations translations] }
-    editions = documents.includes(associations).map(&:latest_edition)
-    editions.compact
+    @latest_editions ||= editions.latest_edition.includes(:translations, :document, organisations: :translations)
+    # associations = { latest_edition: %i[organisations translations] }
+    # editions = documents.includes(associations).map(&:latest_edition)
+    # editions.compact
   end
 
   def visible?
