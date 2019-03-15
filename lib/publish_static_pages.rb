@@ -98,6 +98,7 @@ class PublishStaticPages
         description: "Find news articles, speeches and statements from government organisations",
         base_path: "/government/announcements",
         locales: Locale.non_english.map(&:code),
+        rendering_app: Whitehall::RenderingApp::FINDER_FRONTEND,
       },
       {
         content_id: "324e4708-2285-40a0-b3aa-cb13af14ec5f",
@@ -151,7 +152,7 @@ class PublishStaticPages
         locale: "en",
         base_path: page[:base_path],
         publishing_app: "whitehall",
-        rendering_app: Whitehall::RenderingApp::WHITEHALL_FRONTEND,
+        rendering_app: page[:rendering_app] || Whitehall::RenderingApp::WHITEHALL_FRONTEND,
         routes: routes,
         public_updated_at: Time.zone.now.iso8601,
         update_type: "minor",
