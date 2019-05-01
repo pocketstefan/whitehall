@@ -1,17 +1,21 @@
 <section class="edition-view-edit-buttons">
-  <% if @edition.publicly_visible? %>
-    <%= link_to "View on website", public_document_url(@edition), class: 'btn btn-lg btn-primary public_version', target: '_blank' %>
-  <% elsif @edition.translatable? && @edition.available_in_multiple_languages? %>
-    <%= render 'admin/shared/bootstrap/button_dropdown',
-                button_text: 'Preview on website',
-                links: translation_preview_links(@edition) %>
-  <% else %>
-    <%= link_to "Preview on website", preview_document_url(@edition), class: 'btn btn-lg btn-primary preview_version', target: '_blank' %>
-  <% end %>
-
-  <% if @edition.editable? %>
-    <%= edit_edition_button(@edition) %>
-  <% elsif @edition.is_latest_edition? and @edition.published? %>
-    <%= redraft_edition_button(@edition) %>
-  <% end %>
+  <div class="edition-view-buttons">
+    <% if @edition.publicly_visible? %>
+      <%= link_to "View on website", public_document_url(@edition), class: 'btn btn-lg btn-primary public_version', target: '_blank' %>
+      <%= link_to "View page data", "https://content-data.publishing.service.gov.uk/metrics"+public_document_path(@edition), class: 'btn btn-lg btn-default public_version', target: '_blank' %>
+    <% elsif @edition.translatable? && @edition.available_in_multiple_languages? %>
+      <%= render 'admin/shared/bootstrap/button_dropdown',
+                  button_text: 'Preview on website',
+                  links: translation_preview_links(@edition) %>
+    <% else %>
+      <%= link_to "Preview on website", preview_document_url(@edition), class: 'btn btn-lg btn-primary preview_version', target: '_blank' %>
+    <% end %>
+  </div>
+  <div class="edition-edit-buttons">
+    <% if @edition.editable? %>
+      <%= edit_edition_button(@edition) %>
+    <% elsif @edition.is_latest_edition? and @edition.published? %>
+      <%= redraft_edition_button(@edition) %>
+    <% end %>
+  </div>
 </section>
