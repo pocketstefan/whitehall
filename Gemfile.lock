@@ -89,6 +89,8 @@ GEM
     ci_reporter_minitest (1.0.0)
       ci_reporter (~> 2.0)
       minitest (~> 5.0)
+    cld (0.8.0)
+      ffi
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -577,6 +579,7 @@ DEPENDENCIES
   carrierwave-i18n
   chronic
   ci_reporter_minitest
+  cld (~> 0.8.0)
   coffee-rails (~> 4.2.2)
   cucumber (~> 2.4.0)
   cucumber-rails

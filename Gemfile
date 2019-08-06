@@ -7,6 +7,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap-kaminari-views', '0.0.5'
 gem 'carrierwave', '~> 1.3.1'
 gem 'carrierwave-i18n'
+gem 'cld', '~> 0.8.0'
 gem 'chronic'
 gem 'dalli', '~> 2.7'
 gem 'deprecated_columns', '~> 0.1.1'

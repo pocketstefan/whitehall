@@ -52,6 +52,11 @@ module TranslationHelper
     end
   end
 
+  def t_detect(string_to_detect)
+    detection = CLD.detect_language(string_to_detect)
+    detection[:code]
+  end
+
   def t_corporate_information_page_type_link_text(page)
     if I18n.exists?("corporate_information_page.type.link_text.#{page.display_type_key}")
       t("corporate_information_page.type.link_text.#{page.display_type_key}")
