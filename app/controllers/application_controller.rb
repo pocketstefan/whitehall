@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
   before_action :set_audit_trail_whodunnit
   before_action :set_authenticated_user_header
 
+  before_action do
+    Rack::MiniProfiler.authorize_request
+  end
+
   layout 'frontend'
   after_action :set_slimmer_template
 

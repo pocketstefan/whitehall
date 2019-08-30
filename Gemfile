@@ -85,6 +85,12 @@ else
 end
 # rubocop:enable Bundler/DuplicatedGem
 
+
+gem 'memory_profiler'
+gem 'flamegraph'
+gem 'stackprof'
+gem 'rack-mini-profiler'
+
 group :development, :test do
   gem 'govuk-lint', '~> 3'
   gem 'parallel_tests'
